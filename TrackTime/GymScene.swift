@@ -1,14 +1,15 @@
 //
-//  GameScene.swift
+//  GymScene.swift
 //  TrackTime
 //
-//  Created by brady on 1/29/24.
+//  Created by brady on 2/7/24.
 //
 
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GymScene: SKScene {
+    
     private var character : SKSpriteNode?
     private var characterTextures:[SKTexture] = []
 
@@ -40,11 +41,4 @@ class GameScene: SKScene {
             }
         }
     }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-            // Called before each frame is rendered
-        }
-    
-
 }
