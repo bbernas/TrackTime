@@ -31,13 +31,16 @@ class GymScene: SKScene {
         
         for touch in touches{
             let touchLocation = touch.location(in: self)
+            let touchedNode = self.nodes(at: touchLocation)
             if((touchLocation.y < -210 && touchLocation.y > -630) && (touchLocation.x > -355 && touchLocation.x < 350)){
                 character!.run(animationRepeat)
                 character!.run(SKAction.moveTo(y: touchLocation.y, duration: animation.duration * 3))
                 character!.run(SKAction.moveTo(x: touchLocation.x, duration: animation.duration * 3))
             }
-            if((touchLocation.y > 572 && touchLocation.y < 652) && (touchLocation.x > 274 && touchLocation.x < 354)){
-                showMap()
+            for node in touchedNode {
+                if (node.name == "map icon"){
+                    showMap()
+                }
             }
         }
     }
