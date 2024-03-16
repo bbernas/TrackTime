@@ -12,7 +12,8 @@ import GameplayKit
 
 
 class GameViewController: UIViewController {
-
+    
+    public var player = RunnerSprite()
     override func viewDidLoad() {
         super.viewDidLoad()
         

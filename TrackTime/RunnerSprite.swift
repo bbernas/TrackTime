@@ -13,7 +13,7 @@ class RunnerSprite{
     var stamina: Int
     var energy: Int
     
-    init(stamina: Int = 0, energy: Int = 0) {
+    init(stamina: Int = 0, energy: Int = 100) {
         self.stamina = stamina
         self.energy = energy
     }
@@ -28,10 +28,10 @@ class RunnerSprite{
     func getStam() -> Int{
         return stamina
     }
-    func setStam(number: Int) -> Int{
-        return (self.stamina + number)
+    func setStam(number: Int){
+         self.stamina = number
     }
-    func setEner(number: Int) -> Int{
-        return (self.energy + number)
+    func setEner(number: Int){
+        self.energy = number
     }
 }

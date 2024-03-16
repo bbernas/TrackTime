@@ -12,7 +12,7 @@ class GameScene: SKScene {
     private var character : SKSpriteNode?
     private var characterTextures:[SKTexture] = []
     
-    public var player = RunnerSprite()
+    public var player = StartScene().player
     private var ebar : SKSpriteNode?
     
     private var cloud : SKSpriteNode?
@@ -53,7 +53,7 @@ class GameScene: SKScene {
                 if(node.name == "map icon"){
                     showMap()
                 }
-                if((touchLocation.y < -210 && touchLocation.y > -630) && (touchLocation.x > -355 && touchLocation.x < 350) && (node.name != "bed")){
+                if((touchLocation.y < -210 && touchLocation.y > -630) && (touchLocation.x > -355 && touchLocation.x < 350)){
                     character!.run(animationRepeat)
                     character!.run(SKAction.moveTo(y: touchLocation.y, duration: animation.duration * 3))
                     character!.run(SKAction.moveTo(x: touchLocation.x, duration: animation.duration * 3))

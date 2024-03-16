@@ -11,6 +11,7 @@ import GameplayKit
 class StartScene: SKScene {
     
     var txtL : SKSpriteNode?
+    public var player = RunnerSprite()
 
     override func didMove(to view: SKView) {
         self.txtL = (self.childNode(withName: "//txtL") as? SKSpriteNode)!
