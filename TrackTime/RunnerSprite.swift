@@ -10,10 +10,10 @@ import GameplayKit
 
 class RunnerSprite{
     
-    var stamina: Int
-    var energy: Int
+    public var stamina: Int
+    public var energy: Int
     
-    init(stamina: Int = 0, energy: Int = 100) {
+    init(stamina: Int = 0, energy: Int = 0) {
         self.stamina = stamina
         self.energy = energy
     }

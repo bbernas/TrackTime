@@ -17,7 +17,7 @@ class GymScene: SKScene {
     private var ebar : SKSpriteNode?
     private var sbar : SKSpriteNode?
     
-    public var player = StartScene().player
+    //public var player = StartScene().player
 
     override func didMove(to view: SKView) {
         self.character = self.childNode(withName: "//character") as? SKSpriteNode
@@ -41,9 +41,7 @@ class GymScene: SKScene {
             let touchLocation = touch.location(in: self)
             let touchedNode = self.nodes(at: touchLocation)
             for node in touchedNode {
-                //print(node.name)
-                
-                if(node.name == "treadmill") && (GameScene().player.getStam() < 100) && (GameScene().player.getEner() >= 0){
+                if((node.name == "treadmill") && (player.getStam() < 100)) && (player.getEner() > 0){
                     player.setEner(number: (player.getEner() - 10))
                     player.setStam(number: (player.getStam() + 5))
                 } else if((node.name == "treadmill") && (player.getStam() >= 100)){

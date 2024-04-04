@@ -27,6 +27,9 @@ class MapScene: SKScene {
                 if (node.name == "houseicon"){
                     showGameScene()
                 }
+                if (node.name == "raceicon"){
+                    showRaceScene()
+                }
             }
         }
     }
@@ -42,6 +45,13 @@ class MapScene: SKScene {
         let GymScene = SKScene(fileNamed: "GymScene")
         GymScene?.scaleMode = .aspectFit
         view!.presentScene(GymScene!, transition: SKTransition.crossFade(withDuration: 2))
+        
+    }
+    
+    func showRaceScene(){
+        let RaceScene = SKScene(fileNamed: "RaceScene")
+        RaceScene?.scaleMode = .aspectFit
+        view!.presentScene(RaceScene!, transition: SKTransition.crossFade(withDuration: 2))
         
     }
     

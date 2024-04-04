@@ -7,13 +7,14 @@
 
 import SpriteKit
 import GameplayKit
+//var player = RunnerSprite()
 
 class GameScene: SKScene {
     private var character : SKSpriteNode?
     private var characterTextures:[SKTexture] = []
     
-    public var player = StartScene().player
     private var ebar : SKSpriteNode?
+    private var sbar : SKSpriteNode?
     
     private var cloud : SKSpriteNode?
     private var bed : SKSpriteNode?
@@ -46,7 +47,7 @@ class GameScene: SKScene {
             let touchedNode = self.nodes(at: touchLocation)
             for node in touchedNode {
                 if(node.name == "bedNode") && (player.getEner() < 100){
-                    player.energy = (player.getEner() + 5)
+                    player.setEner(number: (player.getEner() + 5))
                 } else if((node.name == "bedNode") && (player.getEner() == 100)){
                     print("you don't need sleep right now.")
                 }
@@ -78,6 +79,19 @@ class GameScene: SKScene {
             ebar?.texture = SKTexture(imageNamed: "bar1")
         } else {
             ebar?.texture = SKTexture(imageNamed: "bar0")
+        }
+        
+        let y = player.getStam()
+        if(y > 75){
+            sbar?.texture = SKTexture(imageNamed: "bar4")
+        } else if(y > 50){
+            sbar?.texture = SKTexture(imageNamed: "bar3")
+        } else if(y > 25){
+            sbar?.texture = SKTexture(imageNamed: "bar2")
+        } else if(y > 0){
+            sbar?.texture = SKTexture(imageNamed: "bar1")
+        } else {
+            sbar?.texture = SKTexture(imageNamed: "bar0")
         }
     }
 }
