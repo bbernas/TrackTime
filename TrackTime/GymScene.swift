@@ -44,8 +44,10 @@ class GymScene: SKScene {
                 if((node.name == "treadmill") && (player.getStam() < 100)) && (player.getEner() > 0){
                     player.setEner(number: (player.getEner() - 10))
                     player.setStam(number: (player.getStam() + 5))
+                    mainClock.addTime(number: 1)
                 } else if((node.name == "treadmill") && (player.getStam() >= 100)){
                     print("Training Level is Max")
+                    //for future add popup showing training max
                 }
                 if(node.name == "map icon"){
                     showMap()

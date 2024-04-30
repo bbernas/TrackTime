@@ -48,6 +48,7 @@ class GameScene: SKScene {
             for node in touchedNode {
                 if(node.name == "bedNode") && (player.getEner() < 100){
                     player.setEner(number: (player.getEner() + 5))
+                    mainClock.addTime(number: 2)
                 } else if((node.name == "bedNode") && (player.getEner() == 100)){
                     print("you don't need sleep right now.")
                 }

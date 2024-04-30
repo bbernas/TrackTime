@@ -15,6 +15,8 @@ class RaceScene: SKScene {
     private var op : SKSpriteNode?
     private var opTextures:[SKTexture] = [SKTexture(imageNamed: "cframe1"), SKTexture(imageNamed: "cframe2"), SKTexture(imageNamed: "cframe3")]
     
+    private var result : SKSpriteNode?
+    
     private var racer1 = RunnerSprite()
     
     private var weather = ["sunny", "normal", "rainy", "snowy"]
@@ -22,7 +24,8 @@ class RaceScene: SKScene {
     override func didMove(to view: SKView) {
         self.character = self.childNode(withName: "//character") as? SKSpriteNode
         self.op = self.childNode(withName: "//op") as? SKSpriteNode
-        
+        self.result = self.childNode(withName: "//result") as? SKSpriteNode
+
         racer1.setEner(number: (player.getEner() + Int.random(in: -5...5)))
         racer1.setStam(number: (player.getStam() + Int.random(in: -5...5)))
         
@@ -58,6 +61,11 @@ class RaceScene: SKScene {
             
             op!.run(animationRepeat1)
             op!.run(SKAction.moveTo(x: 300, duration: animation.duration * 3))
+            
+            result?.texture = SKTexture(imageNamed: "win")
+            let fadeIn = SKAction.fadeAlpha(to: 1.0, duration: 7.0)
+            result!.run(fadeIn)
+            
         }
         //opponent wins
         if(player.getStam() + player.getEner() < racer1.getStam() + racer1.getEner()){
@@ -66,6 +74,10 @@ class RaceScene: SKScene {
             
             op!.run(animationRepeat1)
             op!.run(SKAction.moveTo(x: 300, duration: animation.duration * 2))
+            
+            result?.texture = SKTexture(imageNamed: "lose")
+            let fadeIn = SKAction.fadeAlpha(to: 1.0, duration: 7.0)
+            result!.run(fadeIn)
         }
         //ties
         if(player.getStam() + player.getEner() == racer1.getStam() + racer1.getEner()){

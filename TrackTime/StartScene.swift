@@ -8,6 +8,7 @@
 import SpriteKit
 import GameplayKit
 var player = RunnerSprite()
+var mainClock = clock()
 
 class StartScene: SKScene {
     
